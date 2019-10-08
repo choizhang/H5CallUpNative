@@ -24,6 +24,10 @@ var browser = {
     isBaidu: function(){
         return navigator.userAgent.match(/baidubrowser/i) ? true : false;
     },
+    isFacebook: function(){
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+    },
     isUC: function(){
         return navigator.userAgent.match(/UCBrowser/i) ? true : false;
     },

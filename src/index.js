@@ -123,14 +123,14 @@ extend(Callup.prototype,{
 
         // 如果是安卓chrome浏览器，则通过intent方式打开
         // UC/QQ浏览器被识别为chrome，排除之
-        if (browser.isChrome() && browser.isAndroid() && browser.isUC() === false && browser.isQQBrowser() === false) {
+        if (browser.isChrome() && browser.isAndroid() && browser.isUC() === false && browser.isQQBrowser() === false && !browser.isFacebook()) {
             schemaStr = 'intent://' + schemaStr +'#Intent;'  +
-                        'scheme='   + this.appConfig.PROTOCAL          + ';'+
-                        'package='  + this.appConfig.APK_INFO.PKG      + ';'+
-                        'category=' + this.appConfig.APK_INFO.CATEGORY + ';'+
-                        'action='   + this.appConfig.APK_INFO.ACTION   + ';'+
-                        'S.browser_fallback_url=' + encodeURIComponent(this.appConfig.FAILBACK.ANDROID) + ';' +
-                        'end';
+                'scheme='   + this.appConfig.PROTOCAL          + ';'+
+                'package='  + this.appConfig.APK_INFO.PKG      + ';'+
+                'category=' + this.appConfig.APK_INFO.CATEGORY + ';'+
+                'action='   + this.appConfig.APK_INFO.ACTION   + ';'+
+                'S.browser_fallback_url=' + encodeURIComponent(this.appConfig.FAILBACK.ANDROID) + ';' +
+                'end';
         } else {
             schemaStr = this.appConfig.PROTOCAL + '://' + schemaStr;
         }
